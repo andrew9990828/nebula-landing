@@ -3,73 +3,182 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nebula Automations – AI-Powered Lead Follow-Ups</title>
-  <meta name="description" content="Never miss another lead again — automate follow-ups instantly. Nebula Automations turns missed calls and texts into booked jobs.">
+  <title>Nebula Automations — AI-Powered Lead Follow-Ups</title>
+  <meta name="description" content="Frictionless lead automation for modern service businesses. Nebula Automations turns missed calls into booked jobs — instantly." />
+
+  <!-- Open Graph for social preview -->
+  <meta property="og:title" content="Nebula Automations" />
+  <meta property="og:description" content="AI-powered automation that converts missed calls into booked jobs." />
+  <meta property="og:image" content="Nebula_Horizontal_Logo.webp" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="Nebula_Symbol.webp" />
   <style>
-    :root { --brand:#5b34ff; }
-    * { box-sizing: border-box; }
-    body { font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif; background:#f7f8fb; color:#111; line-height:1.65; margin:0; }
-    header {
-      background: radial-gradient(1000px 400px at 50% -100px, rgba(91,52,255,.25), transparent),
-                  linear-gradient(135deg, #fff, #f4f7ff);
-      padding:64px 16px 24px; text-align:center; border-bottom:1px solid #e9ecf4;
+    :root {
+      --brand: #5b34ff;
+      --gradient: linear-gradient(135deg, #5b34ff 0%, #0acffe 100%);
+      --bg: #0b0b12;
+      --text: #f3f3f7;
+      --muted: #a7a7b4;
     }
-    h1 { margin:0; font-size:2.2rem; color:var(--brand); }
-    header p { margin:.6rem 0 0; color:#333; }
-    section { max-width:860px; margin:24px auto; background:#fff; border-radius:14px; padding:28px; box-shadow:0 6px 24px rgba(0,0,0,.06); border:1px solid #eef2f8; }
-    h2 { margin-top:1.4rem; color:#222; font-size:1.25rem; }
-    ul,ol { padding-left:1.2rem; }
-    a { color:var(--brand); text-decoration:none; font-weight:600; }
-    a:hover { text-decoration:underline; }
-    blockquote { margin:1rem 0; padding:.75rem 1rem; background:#f6f3ff; border-left:4px solid var(--brand); border-radius:6px; }
-    .cta { display:inline-block; margin-top:.5rem; padding:.75rem 1rem; border-radius:10px; background:var(--brand); color:#fff; font-weight:700; text-decoration:none; box-shadow:0 6px 18px rgba(91,52,255,.3); }
-    .cta:hover { filter:brightness(1.05); }
-    footer { text-align:center; color:#555; padding:24px 16px 48px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    header {
+      position: relative;
+      text-align: center;
+      padding: 140px 20px 100px;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: -200px; left: -200px;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle at center, rgba(91,52,255,.25), transparent 70%);
+      filter: blur(120px);
+      z-index: 0;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+    @keyframes float {
+      from { transform: translateY(0px) scale(1); }
+      to { transform: translateY(40px) scale(1.1); }
+    }
+    header img {
+      width: 340px; max-width: 85vw;
+      z-index: 2; position: relative;
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header h1 {
+      font-size: 2.4rem;
+      margin-top: 40px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      color: var(--muted);
+      margin-top: 16px;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 50px 36px;
+      box-shadow: 0 0 40px rgba(91,52,255,.08);
+      backdrop-filter: blur(8px);
+    }
+    h2 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-top: 1.6rem;
+    }
+    p { margin-top: 0.5rem; color: var(--muted); line-height: 1.6; }
+    ul, ol { margin-top: 0.5rem; margin-left: 1.4rem; color: var(--text); }
+    li { margin-bottom: 0.4rem; }
+
+    blockquote {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1.2rem;
+      border-left: 4px solid var(--brand);
+      background: rgba(91,52,255,.08);
+      border-radius: 6px;
+      font-style: italic;
+      color: #d7d7e2;
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--gradient);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      margin-top: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(91,52,255,.4);
+      transition: all .2s ease;
+    }
+    .cta:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(91,52,255,.5); }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 60px 16px 40px;
+    }
+    footer a { color: #7b61ff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media(max-width:700px){
+      header h1 { font-size: 1.9rem; }
+      main { margin: 20px; padding: 28px 20px; }
+      .cta { width: 100%; text-align: center; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>🚀 Nebula Automations</h1>
-    <p><em>“Never miss another lead again — automate your customer follow-ups, instantly.”</em></p>
+    <img src="Nebula_Horizontal_Logo.webp" alt="Nebula Automations Logo" />
+    <h1>Frictionless Lead Automation</h1>
+    <p>AI-powered systems that turn missed calls into booked jobs — automatically.</p>
   </header>
 
-  <section>
+  <main>
     <h2>💡 The Problem</h2>
-    <p>Every missed call or unanswered message means lost revenue. Small businesses lose thousands every year simply because no one followed up fast enough.</p>
+    <p>Every missed call or unanswered message costs small businesses revenue. Service providers lose thousands yearly simply because no one followed up fast enough.</p>
 
     <h2>⚙️ The Solution</h2>
-    <p>Nebula Automations turns every missed call or text into a booked job — automatically. We build and maintain your custom AI-driven system that:</p>
+    <p>Nebula Automations connects instantly to your phone system to handle every missed call or text — converting leads into clients while you focus on the work.</p>
     <ul>
-      <li>Replies instantly to missed calls and texts</li>
-      <li>Captures leads automatically and logs them into Google Sheets or your CRM</li>
-      <li>Follows up 24/7 so you never lose another opportunity</li>
+      <li>Instant replies to missed calls and texts</li>
+      <li>Smart lead capture synced with Google Sheets or your CRM</li>
+      <li>24/7 AI follow-ups that never forget</li>
     </ul>
 
-    <h2>📘 How It Works</h2>
-    <ol>
-      <li><strong>Missed call or message →</strong> A potential customer contacts your business.</li>
-      <li><strong>Nebula Autoreply engages instantly →</strong> “Hey, sorry we missed your call! What are you looking to get done?”</li>
-      <li><strong>You get notified</strong> with all customer info logged neatly — ready to close the deal.</li>
-    </ol>
     <blockquote>“It’s like hiring a 24/7 receptionist who never takes a break — except she works for pennies.”</blockquote>
 
     <h2>💰 Pricing</h2>
-    <p><strong>$250/month</strong> — fully managed automation system:</p>
+    <p><strong>$250/month</strong> — a done-for-you automation package including:</p>
     <ul>
-      <li>✅ Complete setup and integration</li>
-      <li>✅ Custom message flows for your business</li>
-      <li>✅ Live analytics and ongoing optimization</li>
+      <li>✅ Full system setup and maintenance</li>
+      <li>✅ Custom message flows per business type</li>
+      <li>✅ Real-time lead tracking dashboard</li>
+      <li>✅ Ongoing optimization and reporting</li>
     </ul>
 
     <h2>⚡ Start Your 7-Day Free Trial</h2>
-    <p>No credit card. No contracts. Just results — instantly.</p>
-    <p><a class="cta" href="mailto:andrew@nebulaautomations.com">Start My Free Trial →</a></p>
+    <p>No contracts. No credit card. Just results.</p>
+    <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfuJvwLzQMy2YN3sumMcw7Fmqu3RVDiRKtFusojlEttt8g1Mw/viewform?usp=header" target="_blank">
+      Start My Free Trial →
+    </a>
+    <p style="font-size:13px; margin-top:10px; color:#aaa;">We’ll begin building your automation within 24 hours of submission.</p>
 
-    <h2>🔒 Trusted. Secure. Fully Compliant.</h2>
-    <p>Built using Google Cloud and Make.com infrastructure. Your data is encrypted, backed up, and protected.</p>
-  </section>
+    <h2>🔒 Secure & Compliant</h2>
+    <p>Built on Google Cloud, Make.com, and Twilio — with encrypted data, redundant backups, and 99.9% uptime.</p>
+  </main>
 
   <footer>
+    <img src="Nebula_Symbol.webp" alt="Nebula Symbol" width="36" style="vertical-align: middle; margin-right:6px;"/>
     © 2025 Nebula Automations LLC · <a href="mailto:support@nebulaautomations.com">support@nebulaautomations.com</a>
   </footer>
 </body>
