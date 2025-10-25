@@ -11,7 +11,7 @@
     :root {
       --brand: #5b34ff;
       --accent: #0acffe;
-      --bg: #080810;
+      --bg: #070710;
       --text: #f3f3f7;
       --muted: #a7a7b4;
       --gradient: linear-gradient(135deg, var(--brand), var(--accent));
@@ -31,41 +31,39 @@
     header {
       position: relative;
       text-align: center;
-      padding: 120px 20px 80px;
+      padding: 100px 20px 60px;
       overflow: hidden;
+      background: radial-gradient(circle at 50% -20%, rgba(91,52,255,0.25), transparent 70%);
     }
 
     header::before {
       content: "";
       position: absolute;
-      top: -200px; left: 50%;
-      width: 1000px; height: 1000px;
-      background: radial-gradient(circle at center, rgba(91,52,255,.25), transparent 70%);
+      top: -150px; left: 50%;
+      width: 1600px; height: 800px;
       transform: translateX(-50%);
+      background: radial-gradient(circle at center, rgba(91,52,255,.18), rgba(10,207,254,.05) 80%, transparent);
       filter: blur(120px);
       z-index: 0;
-      animation: float 10s ease-in-out infinite alternate;
-    }
-
-    @keyframes float {
-      from { transform: translate(-50%, 0) scale(1); }
-      to { transform: translate(-50%, 40px) scale(1.1); }
     }
 
     header img {
-      width: 280px; max-width: 90vw;
-      z-index: 2; position: relative;
-      animation: fadeIn 1.2s ease-out forwards;
+      width: 680px;
+      max-width: 90vw;
+      z-index: 2;
+      position: relative;
+      filter: drop-shadow(0 0 20px rgba(91,52,255,.35));
+      animation: fadeDown 1.2s ease-out forwards;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px); }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     header h1 {
-      font-size: 2.3rem;
-      margin-top: 36px;
+      font-size: 2.5rem;
+      margin-top: 40px;
       background: var(--gradient);
       -webkit-background-clip: text;
       color: transparent;
@@ -76,16 +74,16 @@
     header p {
       color: var(--muted);
       margin-top: 14px;
-      font-size: 1.1rem;
-      max-width: 620px;
+      font-size: 1.15rem;
+      max-width: 640px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* --- CONTENT --- */
+    /* --- MAIN SECTION --- */
     main {
       max-width: 880px;
-      margin: 60px auto;
+      margin: 70px auto;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
@@ -119,7 +117,6 @@
       color: #d7d7e2;
     }
 
-    /* --- CTA BUTTON --- */
     .cta {
       display: inline-block;
       background: var(--gradient);
@@ -158,7 +155,8 @@
 
     footer a:hover { text-decoration: underline; }
 
-    @media(max-width:700px){
+    @media(max-width:900px){
+      header img { width: 90vw; }
       header h1 { font-size: 1.9rem; }
       main { margin: 20px; padding: 28px 20px; }
       .cta { width: 100%; text-align: center; }
@@ -168,7 +166,7 @@
 
 <body>
   <header>
-    <img src="Nebula_Horizontal_Logo.webp" alt="Nebula Automations Logo" />
+    <img src="Nebula_Horizontal_Logo.webp" alt="Nebula Automations" />
     <h1>Frictionless Lead Automation</h1>
     <p>AI-powered systems that turn missed calls into booked jobs — automatically.</p>
   </header>
