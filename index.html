@@ -5,94 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nebula Automations — AI-Powered Lead Follow-Ups</title>
   <meta name="description" content="Frictionless lead automation for modern service businesses. Nebula Automations turns missed calls into booked jobs — instantly." />
+  <link rel="icon" href="Nebula_Symbol.webp" type="image/webp" />
 
-  <!-- Open Graph for social preview -->
-  <meta property="og:title" content="Nebula Automations" />
-  <meta property="og:description" content="AI-powered automation that converts missed calls into booked jobs." />
-  <meta property="og:image" content="Nebula_Horizontal_Logo.webp" />
-  <meta property="og:type" content="website" />
-
-  <link rel="icon" href="Nebula_Symbol.webp" />
   <style>
     :root {
       --brand: #5b34ff;
-      --gradient: linear-gradient(135deg, #5b34ff 0%, #0acffe 100%);
-      --bg: #0b0b12;
+      --accent: #0acffe;
+      --bg: #080810;
       --text: #f3f3f7;
       --muted: #a7a7b4;
+      --gradient: linear-gradient(135deg, var(--brand), var(--accent));
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: "Inter", "Segoe UI", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Hero Section */
+    /* --- HERO SECTION --- */
     header {
       position: relative;
       text-align: center;
-      padding: 140px 20px 100px;
+      padding: 120px 20px 80px;
       overflow: hidden;
     }
+
     header::before {
       content: "";
       position: absolute;
-      top: -200px; left: -200px;
-      width: 800px; height: 800px;
+      top: -200px; left: 50%;
+      width: 1000px; height: 1000px;
       background: radial-gradient(circle at center, rgba(91,52,255,.25), transparent 70%);
+      transform: translateX(-50%);
       filter: blur(120px);
       z-index: 0;
       animation: float 10s ease-in-out infinite alternate;
     }
+
     @keyframes float {
-      from { transform: translateY(0px) scale(1); }
-      to { transform: translateY(40px) scale(1.1); }
+      from { transform: translate(-50%, 0) scale(1); }
+      to { transform: translate(-50%, 40px) scale(1.1); }
     }
+
     header img {
-      width: 340px; max-width: 85vw;
+      width: 280px; max-width: 90vw;
       z-index: 2; position: relative;
       animation: fadeIn 1.2s ease-out forwards;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     header h1 {
-      font-size: 2.4rem;
-      margin-top: 40px;
+      font-size: 2.3rem;
+      margin-top: 36px;
       background: var(--gradient);
       -webkit-background-clip: text;
       color: transparent;
       font-weight: 800;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
+
     header p {
       color: var(--muted);
-      margin-top: 16px;
-      font-size: 1.15rem;
-      max-width: 600px;
+      margin-top: 14px;
+      font-size: 1.1rem;
+      max-width: 620px;
       margin-left: auto;
       margin-right: auto;
     }
 
+    /* --- CONTENT --- */
     main {
-      max-width: 900px;
+      max-width: 880px;
       margin: 60px auto;
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 50px 36px;
       box-shadow: 0 0 40px rgba(91,52,255,.08);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
+
     h2 {
       font-size: 1.4rem;
       color: #fff;
       margin-top: 1.6rem;
     }
-    p { margin-top: 0.5rem; color: var(--muted); line-height: 1.6; }
+
+    p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     ul, ol { margin-top: 0.5rem; margin-left: 1.4rem; color: var(--text); }
     li { margin-bottom: 0.4rem; }
 
@@ -106,6 +119,7 @@
       color: #d7d7e2;
     }
 
+    /* --- CTA BUTTON --- */
     .cta {
       display: inline-block;
       background: var(--gradient);
@@ -117,8 +131,18 @@
       text-decoration: none;
       box-shadow: 0 8px 30px rgba(91,52,255,.4);
       transition: all .2s ease;
+      animation: pulse 2.5s infinite ease-in-out;
     }
-    .cta:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(91,52,255,.5); }
+
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(91,52,255,.5);
+    }
+
+    @keyframes pulse {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.15); }
+    }
 
     footer {
       text-align: center;
@@ -126,7 +150,12 @@
       color: var(--muted);
       padding: 60px 16px 40px;
     }
-    footer a { color: #7b61ff; text-decoration: none; }
+
+    footer a {
+      color: #7b61ff;
+      text-decoration: none;
+    }
+
     footer a:hover { text-decoration: underline; }
 
     @media(max-width:700px){
@@ -136,6 +165,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <img src="Nebula_Horizontal_Logo.webp" alt="Nebula Automations Logo" />
@@ -168,6 +198,7 @@
 
     <h2>⚡ Start Your 7-Day Free Trial</h2>
     <p>No contracts. No credit card. Just results.</p>
+
     <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfuJvwLzQMy2YN3sumMcw7Fmqu3RVDiRKtFusojlEttt8g1Mw/viewform?usp=header" target="_blank">
       Start My Free Trial →
     </a>
