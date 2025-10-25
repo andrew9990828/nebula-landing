@@ -1,186 +1,317 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nebula Automations — Built Different</title>
-<meta name="description" content="A 19-year-old engineer built Nebula Automations — a frictionless AI system that turns missed calls into booked jobs automatically." />
-<link rel="icon" href="Nebula_Symbol.webp" type="image/webp" />
-<meta property="og:title" content="Nebula Automations — Built Different" />
-<meta property="og:description" content="AI-powered systems that convert missed calls into booked jobs automatically — built from the ground up by a 19-year-old engineer." />
-<meta property="og:image" content="Nebula_Horizontal_Logo.webp" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nebula Automations</title>
+  <meta name="description" content="Turn missed calls into booked jobs automatically. Nebula Automations builds AI follow-up systems that capture, qualify, and convert leads 24/7." />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" href="Nebula_Symbol.webp" type="image/webp" />
 
-<style>
-:root{
-  --bg:#050510;
-  --panel:#ffffff05;
-  --panel-stroke:#ffffff12;
-  --text:#f4f6ff;
-  --muted:#a6a8c4;
-  --brand:#5b34ff;
-  --accent:#00c6ff;
-  --gradient:linear-gradient(90deg,var(--brand),var(--accent));
-  --radius:24px;
-  --shadow:0 20px 60px rgba(0,0,0,.5);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto;
-  background:radial-gradient(1200px 700px at 50% -300px,rgba(91,52,255,.25),transparent 60%),var(--bg);
-  color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;
-}
-.hero{
-  min-height:92vh;display:grid;place-items:center;position:relative;overflow:hidden;padding:80px 20px 40px;
-}
-#stars{position:absolute;inset:0;z-index:0;opacity:.55;}
-.aurora{
-  position:absolute;inset:-10%;
-  background:
-    radial-gradient(900px 600px at 20% 10%,rgba(91,52,255,.28),transparent 60%),
-    radial-gradient(900px 600px at 80% 0%,rgba(0,198,255,.20),transparent 65%),
-    radial-gradient(800px 600px at 50% 90%,rgba(91,52,255,.18),transparent 70%);
-  filter:blur(60px);z-index:1;animation:aurora 16s ease-in-out infinite alternate;
-}
-@keyframes aurora{from{transform:translateY(0)}to{transform:translateY(25px)}}
-.hero-inner{position:relative;z-index:2;text-align:center;width:min(1100px,92vw);}
-.logo-panel{
-  width:min(980px,95vw);aspect-ratio:16/7;
-  margin:auto;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid var(--panel-stroke);border-radius:32px;
-  overflow:hidden;box-shadow:0 0 60px rgba(91,52,255,.25),inset 0 0 1px rgba(255,255,255,.06);
-  position:relative;transform-style:preserve-3d;perspective:1200px;
-}
-.logo{
-  width:70%;max-width:800px;object-fit:contain;
-  filter:drop-shadow(0 8px 36px rgba(91,52,255,.45)) drop-shadow(0 0 18px rgba(0,198,255,.25));
-  opacity:0;transform:scale(0.96);
-  animation:logoPop 1.5s cubic-bezier(.25,1,.3,1) .4s forwards;
-}
-@keyframes logoPop{to{opacity:1;transform:scale(1)}}
-.logo-panel::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.25) 45%,transparent 70%);
-  transform:translateX(-100%);
-  animation:sweep 4s ease-in-out 1.8s forwards;
-  mix-blend-mode:overlay;pointer-events:none;
-}
-@keyframes sweep{to{transform:translateX(120%);opacity:0}}
+  <!-- Social preview -->
+  <meta property="og:title" content="Nebula Automations" />
+  <meta property="og:description" content="AI-powered lead automation that converts missed calls into booked jobs." />
+  <meta property="og:image" content="Nebula_Horizontal_Logo.webp" />
+  <meta property="og:type" content="website" />
 
-h1{margin-top:40px;font-size:clamp(1.8rem,2.2vw + 1rem,2.8rem);font-weight:800;
-    background:var(--gradient);-webkit-background-clip:text;color:transparent;}
-.tagline{color:var(--muted);margin-top:14px;font-size:1.1rem;}
+  <style>
+    :root{
+      --bg:#050510;               /* page background */
+      --ink:#f3f4f9;              /* primary text */
+      --muted:#a7a9be;            /* secondary text */
+      --panel:#ffffff08;          /* glass card bg */
+      --stroke:#ffffff18;         /* card border */
+      --brand:#5b34ff;            /* nebula purple */
+      --accent:#00c6ff;           /* nebula blue   */
+      --grad:linear-gradient(90deg, var(--brand), var(--accent));
+      --radius:24px;
+      --elev:0 20px 60px rgba(0,0,0,.45);
+    }
 
-main{width:min(980px,92vw);margin:90px auto 100px;}
-.card{
-  background:var(--panel);border:1px solid var(--panel-stroke);border-radius:var(--radius);
-  padding:46px 34px;margin-bottom:48px;
-  box-shadow:var(--shadow);backdrop-filter:blur(10px);
-  opacity:0;transform:translateY(20px);transition:all .9s cubic-bezier(.2,.7,.2,1);
-}
-.card.show{opacity:1;transform:translateY(0);}
-h2{font-size:1.28rem;margin-bottom:8px;}
-p{color:var(--muted);line-height:1.65;margin:.25rem 0 .6rem;}
-ul{margin:.4rem 0 .6rem 1.2rem;}li{margin:.38rem 0;}
-blockquote{margin-top:14px;background:rgba(91,52,255,.10);border-left:4px solid var(--brand);
-  padding:12px 14px;border-radius:12px;color:#dfe1ff;font-style:italic;}
+    /* Reset & base */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 700px at 50% -320px, rgba(91,52,255,.22), transparent 60%),
+        var(--bg);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
 
-.cta{
-  display:inline-block;margin-top:18px;padding:1rem 1.5rem;border-radius:12px;
-  font-weight:800;text-decoration:none;color:#fff;background:var(--gradient);
-  box-shadow:0 12px 34px rgba(91,52,255,.45);
-  transition:transform .2s ease,filter .2s ease;
-}
-.cta:hover{transform:translateY(-3px);filter:brightness(1.1);}
-.note{font-size:.85rem;color:#b0b3d9;margin-top:8px;}
-footer{text-align:center;color:#aeb0c8;font-size:.9rem;padding:64px 16px 72px;}
-footer img{vertical-align:middle;margin-right:6px;}
-.signature{text-align:center;margin-top:60px;color:#888;letter-spacing:.3px;
-  font-style:italic;font-size:.95rem;opacity:0;animation:fadeIn 2.4s ease 3.2s forwards;}
-@keyframes fadeIn{to{opacity:1}}
-@media(max-width:720px){.card{padding:30px 22px;margin-bottom:38px;}}
-</style>
+    /* ========================== HERO ========================== */
+    .hero{
+      position:relative; min-height:92svh;
+      display:grid; place-items:center;
+      padding:96px 20px 56px; overflow:hidden;
+    }
+    /* starfield layer */
+    #stars{ position:absolute; inset:0; opacity:.55; z-index:0 }
+
+    /* aurora glow */
+    .aurora{
+      position:absolute; inset:-12%;
+      background:
+        radial-gradient(900px 600px at 20% 8%, rgba(91,52,255,.28), transparent 60%),
+        radial-gradient(900px 600px at 80% 0%,  rgba(0,198,255,.20), transparent 65%),
+        radial-gradient(800px 600px at 50% 92%, rgba(91,52,255,.18), transparent 70%);
+      filter: blur(60px);
+      animation: aurora 16s ease-in-out infinite alternate;
+      z-index:1; pointer-events:none;
+    }
+    @keyframes aurora{ from{transform:translateY(0)} to{transform:translateY(26px)} }
+
+    .hero-inner{
+      position:relative; z-index:2; text-align:center; width:min(1100px, 92vw);
+    }
+
+    /* Logo showcase panel (responsive, centered, zero cropping) */
+    .logo-panel{
+      width:min(980px, 96vw);
+      aspect-ratio: 16/7.5;             /* roomy banner shape */
+      margin-inline:auto;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--stroke);
+      border-radius:32px;
+      box-shadow: var(--elev), inset 0 0 1px rgba(255,255,255,.06);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden; position:relative;
+    }
+    /* subtle shimmer sweep */
+    .logo-panel::after{
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.24) 45%, transparent 70%);
+      transform: translateX(-120%);
+      animation: sweep 3.8s ease-out 1.2s forwards;
+      mix-blend-mode: overlay; pointer-events:none;
+    }
+    @keyframes sweep{ to{ transform:translateX(120%); opacity:0 } }
+
+    /* The LOGO (finalized PNG) — no blend modes that could hide it */
+    .logo{
+      display:block;
+      width:min(680px, 86%);
+      height:auto;                  /* preserves aspect ratio */
+      object-fit:contain;           /* never crop */
+      filter:
+        drop-shadow(0 10px 36px rgba(91,52,255,.45))
+        drop-shadow(0 0 18px rgba(0,198,255,.25));
+      opacity:0; transform: translateY(8px) scale(.985);
+      animation: logoIn 900ms cubic-bezier(.2,.9,.2,1) .25s forwards;
+      user-select:none; pointer-events:none;
+    }
+    @keyframes logoIn{ to{ opacity:1; transform:translateY(0) scale(1) } }
+
+    h1{
+      margin-top:40px;
+      font-weight:800; letter-spacing:.3px;
+      font-size: clamp(1.9rem, 2.4vw + 1rem, 2.9rem);
+      background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .tagline{
+      color:var(--muted); margin-top:14px;
+      font-size:clamp(1.02rem, 1.1vw + .6rem, 1.14rem);
+      max-width: 720px; margin-inline:auto;
+    }
+
+    /* ========================== MAIN ========================== */
+    main{ width:min(980px, 92vw); margin: 88px auto 96px; }
+
+    .section{
+      background:var(--panel);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      padding: 52px 38px;
+      box-shadow: var(--elev);
+      backdrop-filter: blur(10px);
+      opacity:0; transform: translateY(18px);
+      transition: all .9s cubic-bezier(.2,.7,.2,1);
+    }
+    .section.show{ opacity:1; transform:none }
+
+    /* clear, generous spacing between sections */
+    .section + .section{ margin-top: 56px; }
+
+    /* minimal dividers for structure (optional: use .divider elements) */
+    .divider{
+      height:1px; margin: 56px auto; width: 100%;
+      background: linear-gradient(90deg, transparent, #ffffff22, transparent);
+    }
+
+    h2{
+      font-size:1.28rem; margin-bottom:10px;
+    }
+    p{
+      color:var(--muted); line-height:1.68; margin:.25rem 0 .7rem;
+    }
+    ul{ margin:.5rem 0 .6rem 1.2rem }
+    li{ margin:.4rem 0 }
+
+    blockquote{
+      margin-top:14px; color:#dfe1ff; font-style:italic;
+      background: rgba(91,52,255,.10);
+      border:1px solid rgba(91,52,255,.35);
+      border-left:4px solid var(--brand);
+      padding:12px 14px; border-radius:12px;
+    }
+
+    /* CTA */
+    .cta{
+      display:inline-block; margin-top:18px;
+      padding:1rem 1.5rem; border-radius:12px;
+      font-weight:800; letter-spacing:.2px; text-decoration:none; color:#fff;
+      background: var(--grad);
+      box-shadow: 0 12px 34px rgba(91,52,255,.45);
+      transition: transform .18s ease, filter .18s ease;
+      cursor:pointer;
+    }
+    .cta:hover{ transform: translateY(-3px); filter: brightness(1.07) }
+    .note{ font-size:.86rem; color:#b0b3d9; margin-top:8px }
+
+    /* ========================== FOOTER ========================== */
+    footer{
+      text-align:center; color:#aeb0c8; font-size:.92rem;
+      padding: 64px 16px 80px;
+    }
+    footer img{ vertical-align:middle; margin-right:6px }
+    footer a{ color:#9fbaff; text-decoration:none }
+    footer a:hover{ text-decoration:underline }
+
+    /* Reduced motion = disable cosmetics */
+    @media (prefers-reduced-motion: reduce){
+      #stars, .aurora { display:none }
+      .section, .logo { opacity:1 !important; transform:none !important; animation:none !important }
+      .cta, .cta:hover{ transform:none }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 760px){
+      .logo-panel{ aspect-ratio: 16/9 }
+      .section{ padding: 32px 22px }
+      main{ margin: 72px auto 84px }
+    }
+  </style>
 </head>
 <body>
-<section class="hero">
-  <canvas id="stars"></canvas>
-  <div class="aurora"></div>
-  <div class="hero-inner">
-    <div class="logo-panel" id="panel">
-      <img class="logo" id="logo" src="Nebula_Automations_FINALIZED_LOGO (1).png" alt="Nebula Automations" />
+  <!-- ======================= HERO ======================= -->
+  <header class="hero" aria-label="Nebula Automations">
+    <canvas id="stars" aria-hidden="true"></canvas>
+    <div class="aurora" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="logo-panel">
+        <!-- Use the finalized vertical logo (exact filename) -->
+        <img class="logo" src="Nebula_Automations_FINALIZED_LOGO (1).png" alt="Nebula Automations" />
+      </div>
+
+      <h1>Frictionless Lead Automation</h1>
+      <p class="tagline">AI-powered systems that turn missed calls into booked jobs — automatically.</p>
     </div>
-    <h1>Frictionless Lead Automation</h1>
-    <p class="tagline">AI-powered systems that turn missed calls into booked jobs — automatically.</p>
-  </div>
-</section>
+  </header>
 
-<main>
-  <article class="card">
-    <h2>💡 The Problem</h2>
-    <p>Every missed call or unanswered message costs small businesses revenue. Service providers lose thousands yearly simply because no one followed up fast enough.</p>
-  </article>
+  <!-- ======================= MAIN ======================= -->
+  <main>
+    <section class="section">
+      <h2>💡 The Problem</h2>
+      <p>Every missed call or unanswered message costs small businesses revenue. Service providers lose thousands yearly simply because no one followed up fast enough.</p>
+    </section>
 
-  <article class="card">
-    <h2>⚙️ The Solution</h2>
-    <p>Nebula Automations connects instantly to your phone system to handle every missed call or text — converting leads into clients while you focus on the work.</p>
-    <ul>
-      <li>Instant replies to missed calls and texts</li>
-      <li>Smart lead capture synced with Google Sheets or your CRM</li>
-      <li>24/7 AI follow-ups that never forget</li>
-    </ul>
-    <blockquote>“It’s like hiring a 24/7 receptionist who never takes a break — except she works for pennies.”</blockquote>
-  </article>
+    <section class="section">
+      <h2>⚙️ The Solution</h2>
+      <p>Nebula Automations connects instantly to your phone system to handle every missed call or text — converting leads into clients while you focus on the work.</p>
+      <ul>
+        <li>Instant replies to missed calls and texts</li>
+        <li>Smart lead capture synced with Google Sheets or your CRM</li>
+        <li>24/7 AI follow-ups that never forget</li>
+      </ul>
+      <blockquote>“It’s like hiring a 24/7 receptionist who never takes a break — except she works for pennies.”</blockquote>
+    </section>
 
-  <article class="card">
-    <h2>💰 Pricing</h2>
-    <p><strong>$250/month</strong> — a done-for-you automation package including:</p>
-    <ul>
-      <li>✅ Full system setup and maintenance</li>
-      <li>✅ Custom message flows per business type</li>
-      <li>✅ Real-time lead tracking dashboard</li>
-      <li>✅ Ongoing optimization and reporting</li>
-    </ul>
-    <h2 style="margin-top:18px">⚡ Start Your 7-Day Free Trial</h2>
-    <p>No contracts. No credit card. Just results.</p>
-    <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfuJvwLzQMy2YN3sumMcw7Fmqu3RVDiRKtFusojlEttt8g1Mw/viewform?usp=header" target="_blank">Start My Free Trial →</a>
-    <div class="note">We’ll begin building your automation within 24 hours of submission.</div>
-  </article>
+    <section class="section">
+      <h2>💰 Pricing</h2>
+      <p><strong>$250/month</strong> — a done-for-you automation package including:</p>
+      <ul>
+        <li>✅ Full system setup and maintenance</li>
+        <li>✅ Custom message flows per business type</li>
+        <li>✅ Real-time lead tracking dashboard</li>
+        <li>✅ Ongoing optimization and reporting</li>
+      </ul>
 
-  <article class="card">
-    <h2>🔒 Secure & Compliant</h2>
-    <p>Built on Google Cloud, Make.com, and Twilio — with encrypted data, redundant backups, and 99.9% uptime.</p>
-  </article>
+      <h2 style="margin-top:18px">⚡ Start Your 7-Day Free Trial</h2>
+      <p>No contracts. No credit card. Just results.</p>
 
-  <div class="signature">
-    Built by a 19-year-old engineer who decided “enough waiting — I’ll build the system myself.”
-  </div>
-</main>
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfuJvwLzQMy2YN3sumMcw7Fmqu3RVDiRKtFusojlEttt8g1Mw/viewform?usp=header" target="_blank" rel="noopener">
+        Start My Free Trial →
+      </a>
+      <div class="note">We’ll begin building your automation within 24 hours of submission.</div>
+    </section>
 
-<footer>
-  <img src="Nebula_Symbol.webp" width="26" height="26" alt="Nebula symbol">
-  © 2025 Nebula Automations LLC · <a href="mailto:support@nebulaautomations.com">support@nebulaautomations.com</a>
-</footer>
+    <section class="section">
+      <h2>🔒 Secure & Compliant</h2>
+      <p>Built on Google Cloud, Make.com, and Twilio — with encrypted data, redundant backups, and 99.9% uptime.</p>
+    </section>
+  </main>
 
-<script>
-const io=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}
-}),{threshold:.15});
-document.querySelectorAll('.card').forEach(el=>io.observe(el));
+  <!-- ======================= FOOTER ======================= -->
+  <footer>
+    <img src="Nebula_Symbol.webp" width="28" height="28" alt="Nebula symbol">
+    © 2025 Nebula Automations LLC · <a href="mailto:support@nebulaautomations.com">support@nebulaautomations.com</a>
+  </footer>
 
-const c=document.getElementById('stars'),x=c.getContext('2d');let w,h,s=[];
-function resize(){w=c.width=innerWidth;h=c.height=innerHeight*0.9;}
-function init(){s=Array.from({length:120},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.3,z:Math.random()*0.8+0.2}))}
-function draw(t){
-  x.clearRect(0,0,w,h);
-  for(const i of s){
-    const tw=(Math.sin(t*0.001*i.z)+1)/2;
-    x.globalAlpha=.35+tw*.5;x.fillStyle='#a0b4ff';
-    x.beginPath();x.arc(i.x,i.y,i.r*(1+tw*.3),0,Math.PI*2);x.fill();
-    i.x+=.02*i.z;i.y+=.015*i.z;
-    if(i.x>w)i.x=0;if(i.y>h)i.y=0;
-  }requestAnimationFrame(draw);
-}
-resize();init();addEventListener('resize',resize);requestAnimationFrame(draw);
-</script>
+  <script>
+    /* --------- Reveal on scroll --------- */
+    const io = new IntersectionObserver((entries)=>{
+      for(const e of entries){
+        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+      }
+    },{threshold:.12});
+    document.querySelectorAll('.section').forEach(el=> io.observe(el));
+
+    /* --------- Starfield (GPU-light) --------- */
+    (function(){
+      const canvas = document.getElementById('stars');
+      const ctx = canvas.getContext('2d', { alpha:true });
+      let w, h, stars = [], COUNT = 120;
+
+      function resize(){
+        w = canvas.width  = innerWidth;
+        h = canvas.height = Math.max(innerHeight*0.92, 560);
+      }
+      function init(){
+        stars = Array.from({length:COUNT}, ()=>({
+          x: Math.random()*w,
+          y: Math.random()*h,
+          z: Math.random()*0.8 + 0.2,
+          r: Math.random()*1.2 + .3,
+          tw: Math.random()*0.8 + 0.2
+        }));
+      }
+      function draw(t){
+        ctx.clearRect(0,0,w,h);
+        for(const s of stars){
+          const tw = (Math.sin(t*0.001 * s.tw) + 1)/2;
+          ctx.globalAlpha = 0.35 + tw*0.5;
+          ctx.fillStyle = '#a0b4ff';
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r*(1+tw*0.25), 0, Math.PI*2);
+          ctx.fill();
+
+          // drift
+          s.x += .02 * s.z; s.y += .015 * s.z;
+          if(s.x>w+2) s.x=-2;
+          if(s.y>h+2) s.y=-2;
+        }
+        requestAnimationFrame(draw);
+      }
+
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+      function start(){ resize(); init(); if(!reduce.matches) requestAnimationFrame(draw); }
+      addEventListener('resize', resize, { passive:true });
+      start();
+    })();
+  </script>
 </body>
 </html>
