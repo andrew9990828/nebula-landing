@@ -4,215 +4,215 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nebula Automations</title>
-  <meta name="description" content="Turn missed calls into booked jobs automatically. Nebula Automations builds AI follow-up systems that capture, qualify, and convert leads 24/7." />
-  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="AI-powered systems that turn missed calls into booked jobs — automatically." />
   <link rel="icon" href="Nebula_Symbol.webp" type="image/webp" />
 
-  <!-- Social preview -->
-  <meta property="og:title" content="Nebula Automations" />
-  <meta property="og:description" content="AI-powered lead automation that converts missed calls into booked jobs." />
-  <meta property="og:image" content="Nebula_Horizontal_Logo.webp" />
-  <meta property="og:type" content="website" />
-
   <style>
-    :root{
-      --bg:#050510;               /* page background */
-      --ink:#f3f4f9;              /* primary text */
-      --muted:#a7a9be;            /* secondary text */
-      --panel:#ffffff08;          /* glass card bg */
-      --stroke:#ffffff18;         /* card border */
-      --brand:#5b34ff;            /* nebula purple */
-      --accent:#00c6ff;           /* nebula blue   */
-      --grad:linear-gradient(90deg, var(--brand), var(--accent));
-      --radius:24px;
-      --elev:0 20px 60px rgba(0,0,0,.45);
+    :root {
+      --bg: #050510;
+      --ink: #f3f4f9;
+      --muted: #a7a9be;
+      --panel: #ffffff08;
+      --stroke: #ffffff18;
+      --brand: #5b34ff;
+      --accent: #00c6ff;
+      --grad: linear-gradient(90deg, var(--brand), var(--accent));
+      --radius: 24px;
+      --elev: 0 20px 60px rgba(0,0,0,.45);
     }
 
-    /* Reset & base */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 700px at 50% -320px, rgba(91,52,255,.22), transparent 60%), var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* -------------------- HERO -------------------- */
+    header.hero {
+      position: relative;
+      min-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Animated background lights */
+    .nebula-glow {
+      position: absolute;
+      inset: -20%;
       background:
-        radial-gradient(1200px 700px at 50% -320px, rgba(91,52,255,.22), transparent 60%),
-        var(--bg);
-      color:var(--ink);
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-      overflow-x:hidden;
-    }
-    a{color:inherit}
-
-    /* ========================== HERO ========================== */
-    .hero{
-      position:relative; min-height:92svh;
-      display:grid; place-items:center;
-      padding:96px 20px 56px; overflow:hidden;
-    }
-    /* starfield layer */
-    #stars{ position:absolute; inset:0; opacity:.55; z-index:0 }
-
-    /* aurora glow */
-    .aurora{
-      position:absolute; inset:-12%;
-      background:
-        radial-gradient(900px 600px at 20% 8%, rgba(91,52,255,.28), transparent 60%),
-        radial-gradient(900px 600px at 80% 0%,  rgba(0,198,255,.20), transparent 65%),
-        radial-gradient(800px 600px at 50% 92%, rgba(91,52,255,.18), transparent 70%);
-      filter: blur(60px);
-      animation: aurora 16s ease-in-out infinite alternate;
-      z-index:1; pointer-events:none;
-    }
-    @keyframes aurora{ from{transform:translateY(0)} to{transform:translateY(26px)} }
-
-    .hero-inner{
-      position:relative; z-index:2; text-align:center; width:min(1100px, 92vw);
+        radial-gradient(800px 500px at 20% 30%, rgba(91,52,255,.28), transparent 70%),
+        radial-gradient(900px 700px at 80% 40%, rgba(0,198,255,.24), transparent 75%),
+        radial-gradient(600px 800px at 50% 85%, rgba(91,52,255,.20), transparent 80%);
+      animation: glowShift 20s ease-in-out infinite alternate;
+      filter: blur(80px);
+      z-index: 0;
     }
 
-    /* Logo showcase panel (responsive, centered, zero cropping) */
-    .logo-panel{
-      width:min(980px, 96vw);
-      aspect-ratio: 16/7.5;             /* roomy banner shape */
-      margin-inline:auto;
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid var(--stroke);
-      border-radius:32px;
-      box-shadow: var(--elev), inset 0 0 1px rgba(255,255,255,.06);
-      display:flex; align-items:center; justify-content:center;
-      overflow:hidden; position:relative;
+    @keyframes glowShift {
+      0% { transform: translateY(0); opacity: 0.9; }
+      100% { transform: translateY(40px); opacity: 1; }
     }
-    /* subtle shimmer sweep */
-    .logo-panel::after{
-      content:""; position:absolute; inset:0;
-      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.24) 45%, transparent 70%);
-      transform: translateX(-120%);
-      animation: sweep 3.8s ease-out 1.2s forwards;
-      mix-blend-mode: overlay; pointer-events:none;
-    }
-    @keyframes sweep{ to{ transform:translateX(120%); opacity:0 } }
 
-    /* The LOGO (finalized PNG) — no blend modes that could hide it */
-    .logo{
-      display:block;
-      width:min(680px, 86%);
-      height:auto;                  /* preserves aspect ratio */
-      object-fit:contain;           /* never crop */
-      filter:
-        drop-shadow(0 10px 36px rgba(91,52,255,.45))
-        drop-shadow(0 0 18px rgba(0,198,255,.25));
-      opacity:0; transform: translateY(8px) scale(.985);
-      animation: logoIn 900ms cubic-bezier(.2,.9,.2,1) .25s forwards;
-      user-select:none; pointer-events:none;
+    /* Starfield canvas */
+    canvas#stars {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.55;
     }
-    @keyframes logoIn{ to{ opacity:1; transform:translateY(0) scale(1) } }
 
-    h1{
-      margin-top:40px;
-      font-weight:800; letter-spacing:.3px;
+    /* Floating holographic halo behind logo */
+    .halo {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0,198,255,.12), transparent 70%);
+      filter: blur(120px);
+      animation: pulse 8s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      100% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    /* Logo */
+    .hero .logo {
+      position: relative;
+      z-index: 1;
+      width: min(680px, 85%);
+      height: auto;
+      animation: logoIn 1.4s cubic-bezier(.2,.9,.2,1) forwards;
+      filter: drop-shadow(0 0 20px rgba(91,52,255,.4))
+              drop-shadow(0 0 40px rgba(0,198,255,.25));
+    }
+
+    @keyframes logoIn {
+      from { transform: translateY(20px) scale(0.95); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-weight: 800;
+      letter-spacing: .3px;
       font-size: clamp(1.9rem, 2.4vw + 1rem, 2.9rem);
-      background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .tagline{
-      color:var(--muted); margin-top:14px;
-      font-size:clamp(1.02rem, 1.1vw + .6rem, 1.14rem);
-      max-width: 720px; margin-inline:auto;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      color: transparent;
+      z-index: 2;
     }
 
-    /* ========================== MAIN ========================== */
-    main{ width:min(980px, 92vw); margin: 88px auto 96px; }
+    .tagline {
+      color: var(--muted);
+      margin-top: 14px;
+      font-size: clamp(1.02rem, 1.1vw + .6rem, 1.14rem);
+      max-width: 720px;
+      z-index: 2;
+    }
 
-    .section{
-      background:var(--panel);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
+    /* -------------------- SECTIONS -------------------- */
+    main {
+      width: min(980px, 92vw);
+      margin: 88px auto 96px;
+    }
+
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
       padding: 52px 38px;
       box-shadow: var(--elev);
       backdrop-filter: blur(10px);
-      opacity:0; transform: translateY(18px);
-      transition: all .9s cubic-bezier(.2,.7,.2,1);
-    }
-    .section.show{ opacity:1; transform:none }
-
-    /* clear, generous spacing between sections */
-    .section + .section{ margin-top: 56px; }
-
-    /* minimal dividers for structure (optional: use .divider elements) */
-    .divider{
-      height:1px; margin: 56px auto; width: 100%;
-      background: linear-gradient(90deg, transparent, #ffffff22, transparent);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all 1s cubic-bezier(.2,.7,.2,1);
     }
 
-    h2{
-      font-size:1.28rem; margin-bottom:10px;
-    }
-    p{
-      color:var(--muted); line-height:1.68; margin:.25rem 0 .7rem;
-    }
-    ul{ margin:.5rem 0 .6rem 1.2rem }
-    li{ margin:.4rem 0 }
+    .section.show { opacity: 1; transform: none; }
+    .section + .section { margin-top: 64px; }
 
-    blockquote{
-      margin-top:14px; color:#dfe1ff; font-style:italic;
+    h2 {
+      font-size: 1.28rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.68;
+      margin: .25rem 0 .7rem;
+    }
+
+    ul { margin: .5rem 0 .6rem 1.2rem; }
+    li { margin: .4rem 0; }
+
+    blockquote {
+      margin-top: 14px;
+      color: #dfe1ff;
+      font-style: italic;
       background: rgba(91,52,255,.10);
-      border:1px solid rgba(91,52,255,.35);
-      border-left:4px solid var(--brand);
-      padding:12px 14px; border-radius:12px;
+      border: 1px solid rgba(91,52,255,.35);
+      border-left: 4px solid var(--brand);
+      padding: 12px 14px;
+      border-radius: 12px;
     }
 
-    /* CTA */
-    .cta{
-      display:inline-block; margin-top:18px;
-      padding:1rem 1.5rem; border-radius:12px;
-      font-weight:800; letter-spacing:.2px; text-decoration:none; color:#fff;
+    .cta {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      color: #fff;
       background: var(--grad);
       box-shadow: 0 12px 34px rgba(91,52,255,.45);
       transition: transform .18s ease, filter .18s ease;
-      cursor:pointer;
     }
-    .cta:hover{ transform: translateY(-3px); filter: brightness(1.07) }
-    .note{ font-size:.86rem; color:#b0b3d9; margin-top:8px }
 
-    /* ========================== FOOTER ========================== */
-    footer{
-      text-align:center; color:#aeb0c8; font-size:.92rem;
+    .cta:hover { transform: translateY(-3px); filter: brightness(1.07); }
+    .note { font-size: .86rem; color: #b0b3d9; margin-top: 8px; }
+
+    footer {
+      text-align: center;
+      color: #aeb0c8;
+      font-size: .92rem;
       padding: 64px 16px 80px;
     }
-    footer img{ vertical-align:middle; margin-right:6px }
-    footer a{ color:#9fbaff; text-decoration:none }
-    footer a:hover{ text-decoration:underline }
 
-    /* Reduced motion = disable cosmetics */
-    @media (prefers-reduced-motion: reduce){
-      #stars, .aurora { display:none }
-      .section, .logo { opacity:1 !important; transform:none !important; animation:none !important }
-      .cta, .cta:hover{ transform:none }
-    }
+    footer img { vertical-align: middle; margin-right: 6px; }
+    footer a { color: #9fbaff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-    /* Mobile adjustments */
-    @media (max-width: 760px){
-      .logo-panel{ aspect-ratio: 16/9 }
-      .section{ padding: 32px 22px }
-      main{ margin: 72px auto 84px }
+    @media (max-width: 760px) {
+      main { margin: 72px auto 84px; }
+      .section { padding: 32px 22px; }
     }
   </style>
 </head>
 <body>
-  <!-- ======================= HERO ======================= -->
-  <header class="hero" aria-label="Nebula Automations">
-    <canvas id="stars" aria-hidden="true"></canvas>
-    <div class="aurora" aria-hidden="true"></div>
+  <!-- -------------------- HERO -------------------- -->
+  <header class="hero">
+    <canvas id="stars"></canvas>
+    <div class="nebula-glow"></div>
+    <div class="halo"></div>
 
-    <div class="hero-inner">
-      <div class="logo-panel">
-        <!-- Use the finalized vertical logo (exact filename) -->
-        <img class="logo" src="Nebula_Automations_FINALIZED_LOGO (1).png" alt="Nebula Automations" />
-      </div>
+    <img class="logo" src="Nebula_Automations_FINALIZED_LOGO (1).png" alt="Nebula Automations" />
 
-      <h1>Frictionless Lead Automation</h1>
-      <p class="tagline">AI-powered systems that turn missed calls into booked jobs — automatically.</p>
-    </div>
+    <h1>Frictionless Lead Automation</h1>
+    <p class="tagline">AI-powered systems that turn missed calls into booked jobs — automatically.</p>
   </header>
 
-  <!-- ======================= MAIN ======================= -->
+  <!-- -------------------- MAIN -------------------- -->
   <main>
     <section class="section">
       <h2>💡 The Problem</h2>
@@ -243,9 +243,7 @@
       <h2 style="margin-top:18px">⚡ Start Your 7-Day Free Trial</h2>
       <p>No contracts. No credit card. Just results.</p>
 
-      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfuJvwLzQMy2YN3sumMcw7Fmqu3RVDiRKtFusojlEttt8g1Mw/viewform?usp=header" target="_blank" rel="noopener">
-        Start My Free Trial →
-      </a>
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfuJvwLzQMy2YN3sumMcw7Fmqu3RVDiRKtFusojlEttt8g1Mw/viewform?usp=header" target="_blank" rel="noopener">Start My Free Trial →</a>
       <div class="note">We’ll begin building your automation within 24 hours of submission.</div>
     </section>
 
@@ -255,62 +253,61 @@
     </section>
   </main>
 
-  <!-- ======================= FOOTER ======================= -->
+  <!-- -------------------- FOOTER -------------------- -->
   <footer>
-    <img src="Nebula_Symbol.webp" width="28" height="28" alt="Nebula symbol">
+    <img src="Nebula_Symbol.webp" width="28" height="28" alt="Nebula symbol" />
     © 2025 Nebula Automations LLC · <a href="mailto:support@nebulaautomations.com">support@nebulaautomations.com</a>
   </footer>
 
   <script>
-    /* --------- Reveal on scroll --------- */
-    const io = new IntersectionObserver((entries)=>{
-      for(const e of entries){
-        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+    /* Fade-in animation for sections */
+    const io = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
       }
-    },{threshold:.12});
-    document.querySelectorAll('.section').forEach(el=> io.observe(el));
+    }, { threshold: .12 });
+    document.querySelectorAll('.section').forEach(el => io.observe(el));
 
-    /* --------- Starfield (GPU-light) --------- */
-    (function(){
-      const canvas = document.getElementById('stars');
-      const ctx = canvas.getContext('2d', { alpha:true });
-      let w, h, stars = [], COUNT = 120;
+    /* Simple animated starfield */
+    (() => {
+      const c = document.getElementById('stars');
+      const x = c.getContext('2d', { alpha: true });
+      let w, h, stars = [];
+      const COUNT = 140;
 
-      function resize(){
-        w = canvas.width  = innerWidth;
-        h = canvas.height = Math.max(innerHeight*0.92, 560);
+      function resize() {
+        w = c.width = innerWidth;
+        h = c.height = Math.max(innerHeight * 0.9, 560);
       }
-      function init(){
-        stars = Array.from({length:COUNT}, ()=>({
-          x: Math.random()*w,
-          y: Math.random()*h,
-          z: Math.random()*0.8 + 0.2,
-          r: Math.random()*1.2 + .3,
-          tw: Math.random()*0.8 + 0.2
+      function init() {
+        stars = Array.from({ length: COUNT }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.2 + .3,
+          z: Math.random() * 0.8 + 0.2,
+          t: Math.random() * Math.PI * 2
         }));
       }
-      function draw(t){
-        ctx.clearRect(0,0,w,h);
-        for(const s of stars){
-          const tw = (Math.sin(t*0.001 * s.tw) + 1)/2;
-          ctx.globalAlpha = 0.35 + tw*0.5;
-          ctx.fillStyle = '#a0b4ff';
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r*(1+tw*0.25), 0, Math.PI*2);
-          ctx.fill();
-
-          // drift
-          s.x += .02 * s.z; s.y += .015 * s.z;
-          if(s.x>w+2) s.x=-2;
-          if(s.y>h+2) s.y=-2;
+      function draw(ts) {
+        x.clearRect(0, 0, w, h);
+        for (const s of stars) {
+          x.beginPath();
+          x.globalAlpha = 0.4 + 0.4 * Math.sin(ts * 0.001 + s.t);
+          x.fillStyle = '#a0b4ff';
+          x.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          x.fill();
+          s.x += .02 * s.z;
+          s.y += .015 * s.z;
+          if (s.x > w) s.x = 0;
+          if (s.y > h) s.y = 0;
         }
         requestAnimationFrame(draw);
       }
-
-      const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-      function start(){ resize(); init(); if(!reduce.matches) requestAnimationFrame(draw); }
-      addEventListener('resize', resize, { passive:true });
-      start();
+      window.addEventListener('resize', resize);
+      resize(); init(); requestAnimationFrame(draw);
     })();
   </script>
 </body>
