@@ -43,7 +43,6 @@
       text-align: center;
     }
 
-    /* Animated background lights */
     .nebula-glow {
       position: absolute;
       inset: -20%;
@@ -51,7 +50,7 @@
         radial-gradient(800px 500px at 20% 30%, rgba(91,52,255,.28), transparent 70%),
         radial-gradient(900px 700px at 80% 40%, rgba(0,198,255,.24), transparent 75%),
         radial-gradient(600px 800px at 50% 85%, rgba(91,52,255,.20), transparent 80%);
-      animation: glowShift 20s ease-in-out infinite alternate;
+      animation: glowShift 24s ease-in-out infinite alternate;
       filter: blur(80px);
       z-index: 0;
     }
@@ -61,7 +60,6 @@
       100% { transform: translateY(40px); opacity: 1; }
     }
 
-    /* Starfield canvas */
     canvas#stars {
       position: absolute;
       inset: 0;
@@ -69,7 +67,6 @@
       opacity: 0.55;
     }
 
-    /* Floating holographic halo behind logo */
     .halo {
       position: absolute;
       width: 800px;
@@ -85,7 +82,6 @@
       100% { transform: scale(1.1); opacity: 0.8; }
     }
 
-    /* Logo */
     .hero .logo {
       position: relative;
       z-index: 1;
@@ -199,6 +195,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- -------------------- HERO -------------------- -->
   <header class="hero">
@@ -240,7 +237,12 @@
         <li>✅ Ongoing optimization and reporting</li>
       </ul>
 
-      <h2 style="margin-top:18px">⚡ Start Your 7-Day Free Trial</h2>
+      <blockquote style="margin-top:16px;">
+        💡 That’s equivalent to hiring a 24/7 receptionist for just <strong>$0.34/hour</strong> — except she never sleeps, never forgets, and works instantly.
+      </blockquote>
+      <p style="font-size:.9rem; color:#b5b8d8; margin-top:8px;">Compare that to a full-time receptionist at $3,000+ per month — Nebula never takes a day off.</p>
+
+      <h2 style="margin-top:24px">⚡ Start Your 7-Day Free Trial</h2>
       <p>No contracts. No credit card. Just results.</p>
 
       <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfuJvwLzQMy2YN3sumMcw7Fmqu3RVDiRKtFusojlEttt8g1Mw/viewform?usp=header" target="_blank" rel="noopener">Start My Free Trial →</a>
@@ -271,7 +273,7 @@
     }, { threshold: .12 });
     document.querySelectorAll('.section').forEach(el => io.observe(el));
 
-    /* Simple animated starfield */
+    /* Animated starfield */
     (() => {
       const c = document.getElementById('stars');
       const x = c.getContext('2d', { alpha: true });
